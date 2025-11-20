@@ -1,0 +1,18 @@
+[Unit]
+Description=Dakin Mirror Sync Daemon
+After=network.target
+
+[Service]
+Type=simple
+User=dakin
+Group=dakin
+Environment=MIRROR_SYNC_CONFIG=/etc/dakin/mirror_sync_config.json
+Environment=MIRROR_SYNC_DB=/var/lib/dakin/mirror_sync.db
+Environment=MIRROR_SYNC_LOG=/var/log/dakin_mirror_sync.log
+ExecStart=/usr/bin/env python3 /opt/mirror-sync-system/mirror_sync_daemon.py
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
