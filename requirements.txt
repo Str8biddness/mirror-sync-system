@@ -1,0 +1,5 @@
+# mirror-sync-system python requirements
+apscheduler>=3.6
+flask>=1.1.4
+requests>=2.25
+psutil>=5.8
